@@ -1,4 +1,5 @@
-## Node Todo App -- pub-sub style
+Node Todo CRUD -- pub/sub style
+===============================
 
 ```bash
   
@@ -6,45 +7,59 @@ $ npm install
   
 ```
 
-#### Add
-* __One task__
+#### Commands
+( accepts lowercase and uppercase )
+>
+|   cmd   |                     |
+|:-------:|--------------------|
+| __-A-__ |   add todo         |
+| __-R-__ |   remove todo      |
+| __-C-__ |   complete todo    |
+| __-E-__ |   empty todo list  | 
+```
+$ node index.js -A- homework
+```
+
+#### Single Todo
+
+__- Add task name__ ( *wrap in quotes for multiple words* )
+__- Remove and Complete by name or id__
  
 ```bash
-$ node index.js -A cleaning 
+    
+$ node index.js -A- 'wash the cat' 
   
   or
     
-$ node index.js -A 'wash the car' 
-```
-
-* __Multiple tasks__
- 
-```bash
-$ node index.js -A 'sand floor' 'paint fence' 'wax on' 'wax off' 
-```
-
-#### Remove
-* __One task by name or id__
- 
-```bash
-$ node index.js -R cleaning 
+$ node index.js -R- dishes 
   
   or
     
-$ node index.js -R 2 
+$ node index.js -C- 1
+  
 ```
 
-* __Multiple tasks__
-
+#### Multiple Todos
+__- Same deal for multiple arguments__
+ 
 ```bash
-$ node index.js -R 'wax on' 'wax off' 
+  
+$ node index.js -A- 'sand floor' 'paint fence' 'wax on' shopping
+  
+ or
+
+$ node index.js -R- 0 3 1 
   
   or
     
-$ node index.js -R 2 3 
+$ node index.js -C- 'wax on' shopping 
+  
 ```
 
 #### Empty
 ```bash
-$ node index.js -E 
+  
+$ node index.js -E- 
+  
 ```
+    
