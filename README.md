@@ -1,4 +1,4 @@
-## Node Todo App pub-sub style
+## Node Todo App -- pub-sub style
 
 ```bash
   
