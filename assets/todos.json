@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 0,
+    "task": "sand the floor",
+    "complete": false
+  },
+  {
+    "id": 1,
+    "task": "paint the fence",
+    "complete": true
+  },
+  {
+    "id": 2,
+    "task": "wax on",
+    "complete": false
+  },
+  {
+    "id": 3,
+    "task": "wax off",
+    "complete": false
+  }
+]

@@ -1,38 +1,75 @@
 'use strict';
 const helper = require('./../utils/helper');
+const msg = require('./../utils/messages');
 let todos = require('../assets/todos.json');
 require('colors');
 
 const Store = {
-  changeTodos(args, callback){
+  todoSearchMethod(args, callback){
+    process.stdout.write('\n');
     if(!args) args = [1];
     for(let i of args) callback(i)
     helper.write('assets/todos.json', todos);
-    console.log(JSON.stringify(todos, null, 2).yellow);
+    process.stdout.write('\n');
   },
-  addTodo(todo){
-    todos.push({
-      id: helper.getId(todos),
-      task: todo,
-      complete: false
-    })
+
+  displayHelp(){
+    const user = process.cwd().split(/\//)[2];
+    console.log( msg.helpText(user) );
   },
+  
+  listTodos(){
+    let completed;
+    todos.forEach(x =>{
+      completed = x.complete ? 'complete'.green : 'incomplete'.red;
+      console.log( msg.listAllTodos(x.id, x.task, completed) );
+    });
+  },
+
+  addTodo(task){
+    let id = helper.getId(todos);
+    todos.push({ id, task, complete: false });
+    console.log( msg.addSuccess(id, task) );
+  },
+
   removeTodo(todo){
+    let id, task;
     todos.map((x, i) =>{
       if (x.id == todo || x.task == todo) {
-        todos.splice(i, 1);
+        id = x.id;
+        task = x.task;
+        if(x.complete === false){
+          msg.removeCheckCompleted(task, msg.removeSuccess(id, task) );
+          todos.splice(i, 1);
+        } else {
+          console.log( msg.removeSuccess(id, task) );
+          todos.splice(i, 1);
+        }
       }
     });
   },
+
   completeTodo(todo){
-    todos = todos.map((x) =>(
-      x.id == todo || x.task == todo
-        ? Object.assign({}, x, {complete: !x.complete})
-        : x
-    ))
+    let id, task, completed;
+    todos = todos.map((x) =>{
+      if(x.id == todo || x.task == todo){
+        id = x.id;
+        task = x.task;
+        completed = !x.complete ? 'complete'.green : 'incomplete'.red;
+        return Object.assign({}, x, {complete: !x.complete})
+      } else {
+        return x
+      }
+    });
+    console.log( msg.completeSuccess(id, task, completed) );
   },
+
   emptyTodos(){
-    todos = []
+    todos.forEach(x =>{
+      console.log( msg.removeSuccess(x.id, x.task) );
+    });
+    todos = [];
+    console.log( msg.emptySuccess );
   }
 };
 

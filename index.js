@@ -5,6 +5,9 @@ switch(cmd.TYPE.toUpperCase()) {
   
   case cmd.HELP:
     return Actions.help();
+
+  case cmd.LIST:
+    return Actions.list();
   
   case cmd.ADD:
     return Actions.add(cmd.INPUT);

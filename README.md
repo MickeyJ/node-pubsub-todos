@@ -3,21 +3,23 @@ Node Todo CRUD -- pub/sub style
 
 ```bash
   
-$ npm install
+$ npm install && node index.js -H-
   
 ```
 
 #### Commands
 ( accepts lowercase and uppercase )
 >
-|   cmd   |                     |
+|   cmd   |                    |
 |:-------:|--------------------|
+| __-H-__ |   get help         |
+| __-L-__ |   list items       |
 | __-A-__ |   add todo         |
 | __-R-__ |   remove todo      |
 | __-C-__ |   complete todo    |
 | __-E-__ |   empty todo list  | 
 ```
-$ node index.js -A- homework
+$ node index.js -L-
 ```
 
 #### Single Todo

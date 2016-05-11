@@ -1,24 +1,28 @@
 const dispatcher = require('./dispatcher');
 const Store = require('./Store');
 
-dispatcher.register('HELP', (message) =>{
-  console.log(message);
+dispatcher.register('HELP', () =>{
+  Store.displayHelp()
+});
+
+dispatcher.register('LIST', () =>{
+  Store.todoSearchMethod(null, Store.listTodos)
 });
 
 dispatcher.register('ADD', (payload) =>{
-  Store.changeTodos(payload, Store.addTodo)
+  Store.todoSearchMethod(payload, Store.addTodo)
 });
 
 dispatcher.register('REMOVE', (payload) =>{
-  Store.changeTodos(payload, Store.removeTodo)
+  Store.todoSearchMethod(payload, Store.removeTodo)
 });
 
 dispatcher.register('COMPLETE', (payload) =>{
-  Store.changeTodos(payload, Store.completeTodo)
+  Store.todoSearchMethod(payload, Store.completeTodo)
 });
 
 dispatcher.register('EMPTY', () =>{
-  Store.changeTodos(null, Store.emptyTodos)
+  Store.todoSearchMethod(null, Store.emptyTodos)
 });
 
 //  Pass Dispatcher to Actions
