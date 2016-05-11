@@ -18,9 +18,6 @@ $ npm install && node index.js
 | __-R-__ |   remove todo      |
 | __-C-__ |   complete todo    |
 | __-E-__ |   empty todo list  | 
-```
-$ node index.js -L-
-```
 
 #### Single Todo
 
@@ -56,6 +53,13 @@ $ node index.js -R- 0 3 1
   or
     
 $ node index.js -C- 'wax on' shopping 
+  
+```
+
+#### List all Todos
+```
+  
+$ node index.js -L-
   
 ```
 
