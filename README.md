@@ -57,6 +57,7 @@ $ node index.js -C- 'wax on' shopping
 ```
 
 #### List all Todos
+
 ```
   
 $ node index.js -L-
@@ -64,6 +65,7 @@ $ node index.js -L-
 ```
 
 #### Empty
+
 ```bash
   
 $ node index.js -E- 
