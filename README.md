@@ -3,7 +3,7 @@ Node Todo CRUD -- pub/sub style
 
 ```bash
   
-$ npm install && node index.js -H-
+$ npm install && node index.js
   
 ```
 
