@@ -1,22 +1,17 @@
 [
   {
     "id": 0,
-    "task": "sand the floor",
-    "complete": false
-  },
-  {
-    "id": 1,
-    "task": "paint the fence",
+    "task": "one",
     "complete": true
   },
   {
-    "id": 2,
-    "task": "wax on",
-    "complete": false
+    "id": 1,
+    "task": "two",
+    "complete": true
   },
   {
-    "id": 3,
-    "task": "wax off",
+    "id": 4,
+    "task": "five",
     "complete": false
   }
 ]

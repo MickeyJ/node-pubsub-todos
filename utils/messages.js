@@ -44,30 +44,19 @@ module.exports = {
   ),
   
   removeSuccess: (id, task) => (
-    `  ${id}`.red+`: `+`${task}`.green
+    `  ${id}`.red+`: `+`${task}`.green+` - X`
   ),
   
-  removeCheckCompleted(task, message){
-    process.stdin.resume();
-    process.stdout.write(
-      `Incomplete task - `+`${task}\n`.red +
-      `... sure you want to delete it?`+` [n/y]`.yellow
-    );
-    process.stdin.on('data', function (res) {
-      if(res == "y\n")
-        process.stdout.write(`\ndeleted: ${message}\n\n`);
-        process.stdin.end();
-      if(res == "n\n")
-        process.stdout.write(`\nWell, i haven't figured this out yet so you todo was deleted anyway\n\n`);
-        process.exit(1);
-    });
-    process.stdin.on('end', function () {
-      process.stdout.write('end');
-    });
-  },
-  
   completeSuccess: (id, task, completed) => (
-    `  ${id}`.yellow+`: `+`${task}`.blue+` is ${completed}`
+    `  ${id}`.yellow+`: `+`${task}`.blue+` is now ${completed}`
+  ),
+  
+  isCompleteFilter: (bool) =>(
+    bool ? 'complete'.green : 'incomplete'.red
+  ),
+
+  searchError: (todo) => (
+    `  "${todo}"`.green+` cannot be found`.toUpperCase().red
   ),
   
   emptySuccess: (

@@ -11,11 +11,11 @@ const Actions = {
   add(task){
     dispatcher.dispatch('ADD', task)
   },
-  remove(id){
-    dispatcher.dispatch('REMOVE', id)
+  remove(todo){
+    dispatcher.dispatch('REMOVE', todo)
   },
-  complete(id){
-    dispatcher.dispatch('COMPLETE', id)
+  complete(todo){
+    dispatcher.dispatch('COMPLETE', todo)
   },
   empty(){
     dispatcher.dispatch('EMPTY')

@@ -1,15 +1,16 @@
 'use strict';
-const helper = require('./../utils/helper');
+const helper = require('./../utils/helper_methods');
 const msg = require('./../utils/messages');
 let todos = require('../assets/todos.json');
 require('colors');
 
 const Store = {
+
   todoSearchMethod(args, callback){
     process.stdout.write('\n');
     if(!args) args = [1];
     for(let i of args) callback(i)
-    helper.write('assets/todos.json', todos);
+    helper.writeToJSON('assets/todos.json', todos);
     process.stdout.write('\n');
   },
 
@@ -19,49 +20,53 @@ const Store = {
   },
   
   listTodos(){
-    let completed;
+    let completeText;
     todos.forEach(x =>{
-      completed = x.complete ? 'complete'.green : 'incomplete'.red;
-      console.log( msg.listAllTodos(x.id, x.task, completed) );
+      completeText = msg.isCompleteFilter(x.complete);
+      console.log( msg.listAllTodos(x.id, x.task, completeText) );
     });
   },
 
   addTodo(task){
-    let id = helper.getId(todos);
+    let id = helper.getNextId(todos);
     todos.push({ id, task, complete: false });
     console.log( msg.addSuccess(id, task) );
   },
 
   removeTodo(todo){
-    let id, task;
-    todos.map((x, i) =>{
-      if (x.id == todo || x.task == todo) {
-        id = x.id;
-        task = x.task;
-        if(x.complete === false){
-          msg.removeCheckCompleted(task, msg.removeSuccess(id, task) );
-          todos.splice(i, 1);
-        } else {
-          console.log( msg.removeSuccess(id, task) );
-          todos.splice(i, 1);
-        }
+    if(!todo.length){
+      console.log( msg.searchError(' ') );
+    }
+    let results = [], newTodos = [];
+    todos.map((x) =>{
+      if(x.id == todo || x.task == todo) {
+        results.push(x);
+        console.log( msg.removeSuccess(x.id, x.task) );
+      } else {
+        newTodos.push(x)
       }
     });
+    if(!results.length)
+      console.log( msg.searchError(todo) );
+    else
+      todos = newTodos
   },
 
   completeTodo(todo){
-    let id, task, completed;
+    const results = [];
+    let completeText;
     todos = todos.map((x) =>{
       if(x.id == todo || x.task == todo){
-        id = x.id;
-        task = x.task;
-        completed = !x.complete ? 'complete'.green : 'incomplete'.red;
+        results.push(x);
+        completeText = msg.isCompleteFilter(!x.complete);
+        console.log( msg.completeSuccess(x.id, x.task, completeText) );
         return Object.assign({}, x, {complete: !x.complete})
       } else {
         return x
       }
     });
-    console.log( msg.completeSuccess(id, task, completed) );
+    if(!results.length)
+      console.log( msg.searchError(todo) );
   },
 
   emptyTodos(){

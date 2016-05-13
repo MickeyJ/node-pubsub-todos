@@ -1,5 +1,5 @@
 const dispatcher = require('./dispatcher');
-const Store = require('./Store');
+const Store = require('./store');
 
 dispatcher.register('HELP', () =>{
   Store.displayHelp()
