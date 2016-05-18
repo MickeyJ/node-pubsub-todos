@@ -3,7 +3,7 @@ Node Todo CRUD -- pub/sub style
 
 ```bash
   
-$ npm install && node index.js
+$ npm install && node actions.js
   
 ```
 
@@ -27,15 +27,15 @@ __- Remove and Complete by name or id__
  
 ```bash
     
-$ node index.js -A- 'wash the cat' 
+$ node actions.js -A- 'wash the cat' 
   
   or
     
-$ node index.js -R- dishes 
+$ node actions.js -R- dishes 
   
   or
     
-$ node index.js -C- 1
+$ node actions.js -C- 1
   
 ```
 
@@ -44,15 +44,15 @@ __- Same deal for multiple arguments__
  
 ```bash
   
-$ node index.js -A- 'sand floor' 'paint fence' 'wax on' shopping
+$ node actions.js -A- 'sand floor' 'paint fence' 'wax on' shopping
   
  or
 
-$ node index.js -R- 0 3 1 
+$ node actions.js -R- 0 3 1 
   
   or
     
-$ node index.js -C- 'wax on' shopping 
+$ node actions.js -C- 'wax on' shopping 
   
 ```
 
@@ -60,7 +60,7 @@ $ node index.js -C- 'wax on' shopping
 
 ```
   
-$ node index.js -L-
+$ node actions.js -L-
   
 ```
 
@@ -68,7 +68,7 @@ $ node index.js -L-
 
 ```bash
   
-$ node index.js -E- 
+$ node actions.js -E- 
   
 ```
     

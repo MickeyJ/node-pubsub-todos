@@ -75,6 +75,6 @@ const Store = {
   }
 };
 
-// Exporting to Register
-//———————————————————————
+// Exporting to Register Store
+//—————————————————————————————
 module.exports = Store;

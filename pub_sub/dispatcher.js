@@ -1,4 +1,3 @@
-'use strict';
 
 class Dispatcher{
   constructor(){
@@ -17,6 +16,6 @@ class Dispatcher{
   }
 }
 
-// Exporting to Register
-//———————————————————————
+// Exporting to Register Store
+//—————————————————————————————
 module.exports = new Dispatcher;

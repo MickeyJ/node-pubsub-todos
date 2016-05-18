@@ -22,6 +22,6 @@
   {
     "id": 4,
     "task": "thing",
-    "complete": false
+    "complete": true
   }
 ]
