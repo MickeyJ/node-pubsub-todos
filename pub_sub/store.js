@@ -6,7 +6,7 @@ require('colors');
 
 const Store = {
 
-  todoSearchMethod(args, callback){
+  inputSearchMethod(args, callback){
     process.stdout.write('\n');
     if(!args) args = [1];
     for(let i of args) callback(i)

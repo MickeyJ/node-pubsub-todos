@@ -6,23 +6,23 @@ dispatcher.register('HELP', () =>{
 });
 
 dispatcher.register('LIST', () =>{
-  Store.todoSearchMethod(null, Store.listTodos)
+  Store.inputSearchMethod(null, Store.listTodos)
 });
 
 dispatcher.register('ADD', (payload) =>{
-  Store.todoSearchMethod(payload, Store.addTodo)
+  Store.inputSearchMethod(payload, Store.addTodo)
 });
 
 dispatcher.register('REMOVE', (payload) =>{
-  Store.todoSearchMethod(payload, Store.removeTodo)
+  Store.inputSearchMethod(payload, Store.removeTodo)
 });
 
 dispatcher.register('COMPLETE', (payload) =>{
-  Store.todoSearchMethod(payload, Store.completeTodo)
+  Store.inputSearchMethod(payload, Store.completeTodo)
 });
 
 dispatcher.register('EMPTY', () =>{
-  Store.todoSearchMethod(null, Store.emptyTodos)
+  Store.inputSearchMethod(null, Store.emptyTodos)
 });
 
 //  Pass registered methods to Actions
