@@ -25,7 +25,7 @@ dispatcher.register('EMPTY', () =>{
   Store.todoSearchMethod(null, Store.emptyTodos)
 });
 
-//  Pass Dispatcher to Actions
-//——————————————————————————————
+//  Pass registered methods to Actions
+//——————————————————————————————————————
 module.exports = dispatcher;
   

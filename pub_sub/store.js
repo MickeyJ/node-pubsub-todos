@@ -33,13 +33,10 @@ const Store = {
     console.log( msg.addSuccess(id, task) );
   },
 
-  removeTodo(todo){
-    if(!todo.length){
-      console.log( msg.searchError(' ') );
-    }
+  removeTodo(input){
     let results = [], newTodos = [];
     todos.map((x) =>{
-      if(x.id == todo || x.task == todo) {
+      if(x.id == input || x.task == input) {
         results.push(x);
         console.log( msg.removeSuccess(x.id, x.task) );
       } else {
@@ -47,16 +44,16 @@ const Store = {
       }
     });
     if(!results.length)
-      console.log( msg.searchError(todo) );
+      console.log( msg.searchError(input) );
     else
       todos = newTodos
   },
 
-  completeTodo(todo){
+  completeTodo(input){
     const results = [];
     let completeText;
     todos = todos.map((x) =>{
-      if(x.id == todo || x.task == todo){
+      if(x.id == input || x.task == input){
         results.push(x);
         completeText = msg.isCompleteFilter(!x.complete);
         console.log( msg.completeSuccess(x.id, x.task, completeText) );
@@ -66,7 +63,7 @@ const Store = {
       }
     });
     if(!results.length)
-      console.log( msg.searchError(todo) );
+      console.log( msg.searchError(input) );
   },
 
   emptyTodos(){
